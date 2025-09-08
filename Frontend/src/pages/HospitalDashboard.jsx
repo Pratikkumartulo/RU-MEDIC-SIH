@@ -56,82 +56,69 @@ const HospitalDashboard = () => {
   const addAppointment = () => alert("Add Appointment clicked");
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
-      {/* Sidebar */}
-      <aside className="fixed top-0 left-0 h-full w-64 bg-gradient-to-br from-[#1e3c72] to-[#2a5298] text-white shadow-lg overflow-y-auto z-20">
-        <div className="p-5 border-b border-white/20 text-center">
-          <h2 className="text-2xl font-bold mb-1">🏥 {hospital.name || "HMS"}</h2>
-          <p className="text-sm opacity-80">Hospital Management System</p>
+    <div className="min-h-screen bg-[#fafcfb]">
+      {/* Header Bar */}
+      <header className="bg-white border-b border-[#e0ece7] p-6 flex items-center justify-between shadow-none fixed w-full z-30 left-0 top-0" style={{height: "80px"}}>
+        <div className="flex items-center gap-2">
+          <svg width="32" height="32" fill="none" viewBox="0 0 24 24">
+            <path fill="#16a085" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span className="text-2xl font-bold text-[#222] tracking-tight">Medcare.</span>
         </div>
-        <nav className="mt-5">
-          {sections.map(({ id, label, icon }) => (
-            <div
-              key={id}
-              onClick={() => setActiveSection(id)}
-              className={`flex items-center gap-3 px-6 py-4 cursor-pointer border-l-4 transition-colors duration-300 ${
-                activeSection === id
-                  ? "bg-white/20 border-l-[#64b5f6]"
-                  : "border-l-transparent hover:bg-white/10"
-              }`}
-            >
-              <span className="text-xl">{icon}</span>
-              <span className="font-medium">{label}</span>
-            </div>
-          ))}
+        <nav className="hidden md:flex gap-8 text-[#222] font-medium text-lg">
+          <a href="#" className="hover:text-[#16a085]">Home</a>
+          <a href="#" className="hover:text-[#16a085]">Services</a>
+          <a href="#" className="hover:text-[#16a085]">About</a>
+          <a href="#" className="hover:text-[#16a085]">Doctors</a>
+          <a href="#" className="hover:text-[#16a085]">Book</a>
+          <a href="#" className="hover:text-[#16a085]">Review</a>
+          <a href="#" className="hover:text-[#16a085]">Blogs</a>
         </nav>
-      </aside>
+      </header>
 
       {/* Main Content */}
-      <main className="flex-1 ml-64 p-6 md:p-8">
-        {/* Hospital Header */}
-        <header className="bg-white rounded-xl shadow-md p-6 mb-8 flex flex-col md:flex-row md:justify-between md:items-center">
-          <div>
-            <h1 className="text-2xl font-bold text-[#1e3c72] mb-1 flex items-center gap-2">
-              <span>🏥</span> {hospital.name || "Hospital Name"}
-            </h1>
-            <p className="text-gray-600">
-              Reg No: {hospital.uniqueId || hospital.$id || "N/A"}
-            </p>
-            <p className="text-gray-600">
-              Email: {hospital.email || "N/A"}
-            </p>
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[110px] pb-10">
+        {/* Dashboard Cards */}
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+          <div className="border-2 border-[#16a085] rounded-xl bg-white p-6 flex flex-col items-start shadow transition hover:shadow-lg">
+            <div className="text-3xl text-[#16a085] mb-2">👨‍⚕️</div>
+            <div className="text-xl font-bold text-[#222] mb-1">Total Doctors</div>
+            <div className="text-[#222] text-2xl font-extrabold mb-2">{hospital.doctors ? hospital.doctors.length : 0}</div>
+            <button className="mt-auto ml-0 px-4 py-2 border-2 border-[#16a085] text-[#16a085] rounded-lg font-semibold hover:bg-[#e0ece7] transition" onClick={() => setActiveSection("doctors")}>Learn More <span className="ml-2">&#8594;</span></button>
           </div>
-          <div className="text-gray-700 mt-4 md:mt-0 text-right">
-            <p>📍 {hospital.location || "Location not set"}</p>
-            <p>🚑 Emergency: {hospital.contact || "N/A"}</p>
-            <p className="mt-1 font-mono">{currentDateTime}</p>
+          <div className="border-2 border-[#16a085] rounded-xl bg-white p-6 flex flex-col items-start shadow transition hover:shadow-lg">
+            <div className="text-3xl text-[#16a085] mb-2">🏥</div>
+            <div className="text-xl font-bold text-[#222] mb-1">Departments</div>
+            <div className="text-[#222] text-2xl font-extrabold mb-2">{hospital.departments ? hospital.departments.length : 0}</div>
+            <button className="mt-auto ml-0 px-4 py-2 border-2 border-[#16a085] text-[#16a085] rounded-lg font-semibold hover:bg-[#e0ece7] transition" onClick={() => setActiveSection("patients")}>Learn More <span className="ml-2">&#8594;</span></button>
           </div>
-        </header>
-
-        {/* Dashboard Stats */}
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <StatCard
-            title="Total Doctors"
-            number={hospital.doctors ? hospital.doctors.length : 0}
-            change=""
-            borderColor="border-blue-600"
-          />
-          <StatCard
-            title="Departments"
-            number={hospital.departments ? hospital.departments.length : 0}
-            change={hospital.departments ? hospital.departments.join(", ") : ""}
-            borderColor="border-blue-600"
-          />
-          <StatCard
-            title="Beds (Available/Total)"
-            number={`${hospital.availableBeds || 0}/${hospital.capacity || 0}`}
-            change=""
-            borderColor="border-blue-600"
-          />
-          <StatCard
-            title="Pharmacy"
-            number={hospital.pharmacy ? "Available" : "Not Available"}
-            change=""
-            borderColor="border-blue-600"
-          />
+          <div className="border-2 border-[#16a085] rounded-xl bg-white p-6 flex flex-col items-start shadow transition hover:shadow-lg">
+            <div className="text-3xl text-[#16a085] mb-2">💊</div>
+            <div className="text-xl font-bold text-[#222] mb-1">Pharmacy</div>
+            <div className="text-[#222] text-2xl font-extrabold mb-2">{hospital.pharmacy ? "Available" : "Not Available"}</div>
+            <button className="mt-auto ml-0 px-4 py-2 border-2 border-[#16a085] text-[#16a085] rounded-lg font-semibold hover:bg-[#e0ece7] transition" onClick={() => setActiveSection("medicines")}>Learn More <span className="ml-2">&#8594;</span></button>
+          </div>
+          <div className="border-2 border-[#16a085] rounded-xl bg-white p-6 flex flex-col items-start shadow transition hover:shadow-lg">
+            <div className="text-3xl text-[#16a085] mb-2">🛏️</div>
+            <div className="text-xl font-bold text-[#222] mb-1">Beds (Available/Total)</div>
+            <div className="text-[#222] text-2xl font-extrabold mb-2">{hospital.availableBeds || 0}/{hospital.capacity || 0}</div>
+            <button className="mt-auto ml-0 px-4 py-2 border-2 border-[#16a085] text-[#16a085] rounded-lg font-semibold hover:bg-[#e0ece7] transition" onClick={() => setActiveSection("settings")}>Learn More <span className="ml-2">&#8594;</span></button>
+          </div>
+          <div className="border-2 border-[#16a085] rounded-xl bg-white p-6 flex flex-col items-start shadow transition hover:shadow-lg">
+            <div className="text-3xl text-[#16a085] mb-2">📅</div>
+            <div className="text-xl font-bold text-[#222] mb-1">Appointments</div>
+            <div className="text-[#222] text-2xl font-extrabold mb-2">--</div>
+            <button className="mt-auto ml-0 px-4 py-2 border-2 border-[#16a085] text-[#16a085] rounded-lg font-semibold hover:bg-[#e0ece7] transition" onClick={() => setActiveSection("appointments")}>Learn More <span className="ml-2">&#8594;</span></button>
+          </div>
+          <div className="border-2 border-[#16a085] rounded-xl bg-white p-6 flex flex-col items-start shadow transition hover:shadow-lg">
+            <div className="text-3xl text-[#16a085] mb-2">⚙️</div>
+            <div className="text-xl font-bold text-[#222] mb-1">Settings</div>
+            <div className="text-[#222] text-2xl font-extrabold mb-2">--</div>
+            <button className="mt-auto ml-0 px-4 py-2 border-2 border-[#16a085] text-[#16a085] rounded-lg font-semibold hover:bg-[#e0ece7] transition" onClick={() => setActiveSection("settings")}>Learn More <span className="ml-2">&#8594;</span></button>
+          </div>
         </section>
 
-        {/* Sections */}
+        {/* Section Content */}
         <section>
           {activeSection === "doctors" && (
             <ContentPanel

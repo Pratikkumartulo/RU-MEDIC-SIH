@@ -207,41 +207,39 @@ const FindHospitals = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="min-h-screen bg-[#fafcfb]">
+      {/* Header Bar */}
+      <header className="bg-white border-b border-[#e0ece7] p-6 flex items-center justify-between shadow-none fixed w-full z-30 left-0 top-0" style={{height: "80px"}}>
+        <div className="flex items-center gap-2">
+          <svg width="32" height="32" fill="none" viewBox="0 0 24 24">
+            <path fill="#16a085" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span className="text-2xl font-bold text-[#222] tracking-tight">Medcare.</span>
+        </div>
+        <nav className="hidden md:flex gap-8 text-[#222] font-medium text-lg">
+          <a href="#" className="hover:text-[#16a085]">Home</a>
+          <a href="#" className="hover:text-[#16a085]">Services</a>
+          <a href="#" className="hover:text-[#16a085]">About</a>
+          <a href="#" className="hover:text-[#16a085]">Doctors</a>
+          <a href="#" className="hover:text-[#16a085]">Book</a>
+          <a href="#" className="hover:text-[#16a085]">Review</a>
+          <a href="#" className="hover:text-[#16a085]">Blogs</a>
+        </nav>
+      </header>
+
+      <div className="max-w-7xl mx-auto px-4 py-8 pt-[110px]">
         {/* Page Title */}
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">
+        <h1 className="text-3xl font-bold text-[#222] mb-8">
           Hospitals Near You
         </h1>
 
-        {/* Search and Filters */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-          {/* Search Bar */}
-          <div className="flex flex-col md:flex-row gap-4 mb-6">
-            <div className="flex-1 relative">
-              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-                🔍
-              </span>
-              <input
-                type="text"
-                placeholder="Search hospitals by name, specialty, or location"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 flex items-center">
-              <span className="mr-2">🔍</span>
-              Search
-            </button>
-          </div>
-
-          {/* Filter Options */}
+        {/* Filters */}
+        <div className="bg-white rounded-xl border-2 border-[#16a085] shadow p-6 mb-8">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             <select
               value={selectedSpecialty}
               onChange={(e) => setSelectedSpecialty(e.target.value)}
-              className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 border border-[#16a085] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a085]"
             >
               <option value="">🏥 Specialty</option>
               <option value="cardiology">Cardiology</option>
@@ -249,44 +247,40 @@ const FindHospitals = () => {
               <option value="pediatrics">Pediatrics</option>
               <option value="orthopedics">Orthopedics</option>
             </select>
-
             <select
               value={selectedDistance}
               onChange={(e) => setSelectedDistance(e.target.value)}
-              className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 border border-[#16a085] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a085]"
             >
               <option value="">📍 Distance</option>
               <option value="1">Within 1 mile</option>
               <option value="5">Within 5 miles</option>
               <option value="10">Within 10 miles</option>
             </select>
-
             <select
               value={selectedRating}
               onChange={(e) => setSelectedRating(e.target.value)}
-              className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 border border-[#16a085] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a085]"
             >
               <option value="">⭐ Rating</option>
               <option value="4">4+ Stars</option>
               <option value="3">3+ Stars</option>
               <option value="2">2+ Stars</option>
             </select>
-
             <select
               value={selectedAvailability}
               onChange={(e) => setSelectedAvailability(e.target.value)}
-              className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 border border-[#16a085] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a085]"
             >
               <option value="">🕐 Availability</option>
               <option value="available">Available Now</option>
               <option value="busy">Busy</option>
               <option value="emergency">Emergency Only</option>
             </select>
-
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 border border-[#16a085] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a085]"
             >
               <option value="">📊 Sort By</option>
               <option value="distance">Distance</option>
@@ -297,14 +291,14 @@ const FindHospitals = () => {
         </div>
 
         {/* Results Count */}
-        <p className="text-gray-600 mb-6">
+        <p className="text-[#16a085] mb-6 font-semibold">
           Showing {hospitals.length} hospitals
         </p>
 
         {/* Hospital Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           {loading ? (
-            <div className="col-span-3 text-center text-gray-500">
+            <div className="col-span-3 text-center text-[#16a085]">
               Loading hospitals...
             </div>
           ) : error ? (
@@ -313,104 +307,78 @@ const FindHospitals = () => {
             hospitals.map((hospital) => (
               <div
                 key={hospital.id}
-                className="bg-gray-100 border border-gray-300 rounded-lg shadow-sm hover:shadow-md transition-shadow p-6 relative"
+                className="bg-white border-2 border-[#16a085] rounded-xl shadow hover:shadow-lg transition-shadow flex flex-col items-center justify-between min-h-[410px] h-full w-full"
+                style={{ minHeight: "410px", height: "100%" }}
               >
-                {/* Hospital Type Badge */}
-                <div className="absolute top-4 left-4">
-                  <span
-                    className={`px-3 py-1 text-xs font-medium rounded-full ${
-                      hospital.type === "General Hospital"
-                        ? "bg-gray-100 text-gray-700"
-                        : hospital.type === "Specialty Center"
-                        ? "bg-blue-100 text-blue-700"
-                        : hospital.type === "Children's Hospital"
-                        ? "bg-purple-100 text-purple-700"
-                        : "bg-green-100 text-green-700"
-                    }`}
-                  >
-                    {hospital.type}
-                  </span>
-                </div>
-
-                {/* Emergency Badge */}
-                {hospital.emergency && (
-                  <div className="absolute top-4 right-4 bg-red-600 text-white px-2 py-1 text-xs rounded flex items-center">
-                    🏠 24/7 Emergency
-                  </div>
-                )}
-
-                {/* Hospital Icon */}
-                <div className="flex justify-center mt-8 mb-4">
-                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">🏥</span>
-                  </div>
-                </div>
-
-                {/* Hospital Info */}
-                <div className="text-center mb-4">
-                  <h3 className="text-lg font-semibold mb-2">{hospital.name}</h3>
-                  <div className="flex items-center justify-center mb-2">
-                    <div className="flex items-center">
-                      {renderStars(hospital.rating)}
+                <div className="w-full p-6 flex flex-col flex-1">
+                  {/* Hospital Icon */}
+                  <div className="flex justify-center mb-4">
+                    <div className="w-14 h-14 bg-[#e0ece7] rounded-full flex items-center justify-center">
+                      <span className="text-2xl text-[#16a085]">🏥</span>
                     </div>
-                    <span className="ml-2 text-sm text-gray-600">
-                      {hospital.rating} ({hospital.reviews} reviews)
-                    </span>
                   </div>
-                  <p className="text-sm text-gray-600 mb-3">
-                    📍 {hospital.distance}
-                  </p>
-
-                  {/* Specialties */}
-                  <div className="flex flex-wrap gap-2 justify-center mb-4">
-                    {hospital.specialties.map((specialty, index) => (
+                  {/* Hospital Info */}
+                  <div className="text-center mb-2 flex-1 flex flex-col">
+                    <h3 className="text-lg font-bold text-[#222] mb-1">{hospital.name}</h3>
+                    <div className="flex items-center justify-center mb-2">
+                      <div className="flex items-center">
+                        {renderStars(hospital.rating)}
+                      </div>
+                      <span className="ml-2 text-sm text-[#16a085] font-semibold">
+                        {hospital.rating}
+                      </span>
+                    </div>
+                    <p className="text-sm text-[#222] mb-2">
+                      📍 {hospital.distance}
+                    </p>
+                    {/* Specialties */}
+                    <div className="flex flex-wrap gap-2 justify-center mb-2">
+                      {hospital.specialties.map((specialty, index) => (
+                        <span
+                          key={index}
+                          className="px-2 py-1 bg-[#e0ece7] text-[#16a085] text-xs rounded"
+                        >
+                          {specialty}
+                        </span>
+                      ))}
+                    </div>
+                    {/* Availability */}
+                    <div className="flex items-center justify-center mb-2">
+                      <div
+                        className={`w-2 h-2 rounded-full mr-2 ${getAvailabilityDot(
+                          hospital.availability
+                        )}`}
+                      ></div>
                       <span
-                        key={index}
-                        className="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded"
+                        className={`text-sm font-medium ${getAvailabilityColor(
+                          hospital.availability
+                        )}`}
                       >
-                        {specialty}
+                        {hospital.availability}
                       </span>
-                    ))}
+                      {hospital.waitTime && (
+                        <span className="text-sm text-gray-600 ml-2">
+                          [{hospital.waitTime}]
+                        </span>
+                      )}
+                    </div>
+                    {/* Contact Info */}
+                    <p className="text-sm text-[#222] mb-1">
+                      📞 {hospital.phone}
+                    </p>
+                    <p className="text-xs text-[#888] mb-2">
+                      📍 {hospital.address}
+                    </p>
                   </div>
-
-                  {/* Availability */}
-                  <div className="flex items-center justify-center mb-4">
-                    <div
-                      className={`w-2 h-2 rounded-full mr-2 ${getAvailabilityDot(
-                        hospital.availability
-                      )}`}
-                    ></div>
-                    <span
-                      className={`text-sm font-medium ${getAvailabilityColor(
-                        hospital.availability
-                      )}`}
-                    >
-                      {hospital.availability}
-                    </span>
-                    {hospital.waitTime && (
-                      <span className="text-sm text-gray-600 ml-2">
-                        [{hospital.waitTime}]
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Contact Info */}
-                  <p className="text-sm text-gray-600 mb-2">
-                    📞 {hospital.phone}
-                  </p>
-                  <p className="text-xs text-gray-500 mb-4">
-                    📍 {hospital.address}
-                  </p>
-
-                  {/* Action Buttons */}
-                  <div className="flex gap-2">
-                    <Link to={'/bookappointment'} className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 text-sm">
-                      View Doctors
-                    </Link>
-                    <button className="flex-1 border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 text-sm">
-                      Quick book
-                    </button>
-                  </div>
+                </div>
+                {/* Action Button */}
+                <div className="w-full px-6 pb-6">
+                  <Link
+                    to={'/bookappointment'}
+                    className="inline-block border-2 border-[#16a085] text-[#16a085] px-4 py-2 rounded-lg font-semibold hover:bg-[#e0ece7] transition w-full text-center"
+                  >
+                    View Doctors
+                  </Link>
                 </div>
               </div>
             ))

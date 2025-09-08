@@ -117,37 +117,37 @@ const DoctorDashboard = () => {
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-gray-50">
       {/* Sidebar */}
-      <nav className="w-full md:w-64 bg-white shadow-md flex flex-row md:flex-col justify-between py-4 md:py-6 px-4 md:px-0">
+      <nav className="w-full md:w-64 bg-white border-r border-teal-200 flex flex-row md:flex-col justify-between py-4 md:py-6 px-4 md:px-0">
         <div>
           <div className="flex items-center md:px-6 mb-6 md:mb-10">
-            <div className="bg-blue-600 p-2 rounded-lg text-white mr-3">
+            <div className="bg-teal-600 p-2 rounded-lg text-white mr-3">
               <FaCalendarAlt size={24} />
             </div>
             <div>
-              <h1 className="text-lg md:text-xl font-bold">RU-Medic</h1>
+              <h1 className="text-lg md:text-xl font-bold text-teal-700">RU-Medic</h1>
               <p className="text-xs md:text-sm text-gray-500">Doctor Portal</p>
             </div>
           </div>
           <ul className="flex flex-row md:flex-col space-x-4 md:space-x-0 md:space-y-4 text-gray-700 text-sm overflow-x-auto">
-            <li className="px-3 md:px-6 py-2 md:py-3 bg-blue-100 text-blue-700 rounded flex items-center space-x-2 cursor-pointer">
+            <li className="px-3 md:px-6 py-2 md:py-3 border border-teal-400 bg-white text-teal-700 rounded-lg flex items-center space-x-2 cursor-pointer font-semibold">
               <FaCalendarAlt />
               <span>My Slots</span>
             </li>
-            <li className="px-3 md:px-6 py-2 md:py-3 hover:bg-gray-100 flex items-center space-x-2 cursor-pointer text-gray-400">
+            <li className="px-3 md:px-6 py-2 md:py-3 hover:bg-teal-50 border border-teal-200 flex items-center space-x-2 cursor-pointer text-gray-400 rounded-lg">
               <FaClipboardList />
               <span>Appointments</span>
             </li>
-            <li className="px-3 md:px-6 py-2 md:py-3 hover:bg-gray-100 flex items-center space-x-2 cursor-pointer text-gray-400">
+            <li className="px-3 md:px-6 py-2 md:py-3 hover:bg-teal-50 border border-teal-200 flex items-center space-x-2 cursor-pointer text-gray-400 rounded-lg">
               <FaEnvelope />
               <span>Messages</span>
             </li>
-            <li className="px-3 md:px-6 py-2 md:py-3 hover:bg-gray-100 flex items-center space-x-2 cursor-pointer text-gray-400">
+            <li className="px-3 md:px-6 py-2 md:py-3 hover:bg-teal-50 border border-teal-200 flex items-center space-x-2 cursor-pointer text-gray-400 rounded-lg">
               <FaUser />
               <span>Profile</span>
             </li>
           </ul>
         </div>
-        <button className="px-3 md:px-6 py-2 md:py-3 text-gray-600 hover:bg-gray-100 flex items-center space-x-2">
+        <button className="px-3 md:px-6 py-2 md:py-3 text-teal-700 hover:bg-teal-50 border border-teal-200 rounded-lg flex items-center space-x-2">
           <FaSignOutAlt />
           <span>Logout</span>
         </button>
@@ -155,15 +155,15 @@ const DoctorDashboard = () => {
 
       {/* Main Content */}
       <main className="flex-1 p-2 sm:p-4 md:p-10">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1">My Slots</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-1 text-teal-700">My Slots</h2>
         <p className="text-gray-600 mb-6">
           Manage your availability and appointment slots
         </p>
 
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
           {/* Add New Slot Form */}
-          <section className="bg-white rounded-lg shadow p-4 md:p-6 flex-1 max-w-lg w-full">
-            <h3 className="text-lg md:text-xl font-bold mb-4 flex items-center space-x-2">
+          <section className="bg-white rounded-lg border border-teal-400 shadow-none p-4 md:p-6 flex-1 max-w-lg w-full">
+            <h3 className="text-lg md:text-xl font-bold mb-4 flex items-center space-x-2 text-teal-700">
               <FaCalendarAlt />
               <span>Add New Slot</span>
             </h3>
@@ -178,7 +178,7 @@ const DoctorDashboard = () => {
                 <input
                   id="date"
                   type="date"
-                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border border-teal-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
                   {...register("date", { required: "Date is required" })}
                 />
                 {errors.date && (
@@ -200,7 +200,7 @@ const DoctorDashboard = () => {
                   <input
                     id="startTime"
                     type="time"
-                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full border border-teal-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     {...register("startTime", { required: "Start time is required" })}
                   />
                   {errors.startTime && (
@@ -220,7 +220,7 @@ const DoctorDashboard = () => {
                   <input
                     id="endTime"
                     type="time"
-                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full border border-teal-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     {...register("endTime", { required: "End time is required" })}
                   />
                   {errors.endTime && (
@@ -244,7 +244,7 @@ const DoctorDashboard = () => {
                   type="number"
                   min="2"
                   max="5"
-                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border border-teal-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
                   {...register("capacity", {
                     required: "Capacity is required",
                     min: { value: 2, message: "Minimum capacity is 2" },
@@ -258,7 +258,7 @@ const DoctorDashboard = () => {
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white font-semibold rounded px-4 py-3 hover:bg-blue-700 transition"
+                className="w-full border border-teal-400 text-teal-700 font-semibold rounded px-4 py-3 hover:bg-teal-50 transition flex items-center justify-center gap-2"
               >
                 + Add Slot
               </button>
@@ -267,8 +267,8 @@ const DoctorDashboard = () => {
 
           {/* Available Slots Table */}
           <section className="flex-1 w-full overflow-x-auto">
-            <div className="bg-white rounded-lg shadow p-4 md:p-6">
-              <h3 className="text-lg md:text-xl font-bold mb-2 flex items-center space-x-2">
+            <div className="bg-white rounded-lg border border-teal-400 shadow-none p-4 md:p-6">
+              <h3 className="text-lg md:text-xl font-bold mb-2 flex items-center space-x-2 text-teal-700">
                 <FaCalendarAlt />
                 <span>Available Slots</span>
               </h3>
@@ -279,7 +279,7 @@ const DoctorDashboard = () => {
               <div className="overflow-x-auto">
                 <table className="min-w-full text-left text-gray-700 text-xs sm:text-sm md:text-base">
                   <thead>
-                    <tr className="border-b border-gray-200">
+                    <tr className="border-b border-teal-200">
                       <th className="py-2 md:py-3 px-2 md:px-4">Date</th>
                       <th className="py-2 md:py-3 px-2 md:px-4">Time</th>
                       <th className="py-2 md:py-3 px-2 md:px-4">
@@ -296,36 +296,36 @@ const DoctorDashboard = () => {
                       ({ id, date, startTime, endTime, capacity, booked, status }) => (
                         <tr
                           key={id}
-                          className="border-b last:border-0 bg-white hover:bg-gray-50"
+                          className="border-b last:border-0 bg-white hover:bg-teal-50"
                         >
                           <td className="py-2 md:py-3 px-2 md:px-4 text-xs sm:text-sm text-gray-600">
                             <span className="flex items-center gap-2">
-                              <FaCalendarAlt /> {date}
+                              <FaCalendarAlt className="text-teal-400" /> {date}
                             </span>
                           </td>
                           <td className="py-2 md:py-3 px-2 md:px-4 text-xs sm:text-sm text-gray-600">
                             <span className="flex items-center gap-2">
-                              <FaClock /> {startTime} - {endTime}
+                              <FaClock className="text-teal-400" /> {startTime} - {endTime}
                             </span>
                           </td>
                           <td className="py-2 md:py-3 px-2 md:px-4 text-xs sm:text-sm text-gray-600">
                             <span className="flex items-center gap-1">
-                              <FaUserFriends /> {booked}/{capacity}
+                              <FaUserFriends className="text-teal-400" /> {booked}/{capacity}
                             </span>
                           </td>
                           <td className="py-2 md:py-3 px-2 md:px-4">
                             <span
-                              className={`px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-semibold ${
+                              className={`px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-semibold border ${
                                 status === "Available"
-                                  ? "bg-green-100 text-green-700"
-                                  : "bg-red-100 text-red-700"
+                                  ? "border-teal-400 text-teal-700 bg-white"
+                                  : "border-red-300 text-red-700 bg-white"
                               }`}
                             >
                               {status}
                             </span>
                           </td>
                           <td className="py-2 md:py-3 px-2 md:px-4">
-                            <button className="text-gray-500 hover:text-blue-600">
+                            <button className="text-teal-600 hover:text-teal-800">
                               <FaRegEdit />
                             </button>
                           </td>

@@ -124,14 +124,14 @@ const DoctorDetail = () => {
           {/* Left Column - Doctor Info */}
           <div className="lg:col-span-2 space-y-8">
             {/* Doctor Profile */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-lg border border-teal-400 shadow-none p-6">
               <div className="flex items-start">
-                <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center mr-6">
-                  <span className="text-3xl">👨‍⚕️</span>
+                <div className="w-20 h-20 bg-teal-50 rounded-full flex items-center justify-center mr-6 border border-teal-400">
+                  <span className="text-3xl text-teal-600">👨‍⚕️</span>
                 </div>
                 <div className="flex-1">
                   <h1 className="text-2xl font-bold text-gray-900 mb-2">{doctor.name}</h1>
-                  <p className="text-blue-600 font-medium mb-1">{doctor.specialty}</p>
+                  <p className="text-teal-600 font-medium mb-1">{doctor.specialty}</p>
                   <p className="text-gray-600 mb-2">{doctor.hospital}</p>
                   <p className="text-gray-600 mb-3">📅 {doctor.experience}</p>
                   
@@ -146,13 +146,13 @@ const DoctorDetail = () => {
 
                   <div className="flex items-center space-x-4 text-sm">
                     {doctor.verified && (
-                      <div className="flex items-center text-green-600">
+                      <div className="flex items-center text-teal-600">
                         <span className="mr-1">✓</span>
                         Verified
                       </div>
                     )}
                     {doctor.rightToHeal && (
-                      <div className="flex items-center text-blue-600">
+                      <div className="flex items-center text-teal-600">
                         <span className="mr-1">🏥</span>
                         Right to Heal
                       </div>
@@ -167,7 +167,7 @@ const DoctorDetail = () => {
             </div>
 
             {/* About Doctor */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-lg border border-teal-400 shadow-none p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-4">About Dr. Ayush Sharma</h2>
               
               <div className="mb-6">
@@ -175,7 +175,7 @@ const DoctorDetail = () => {
                 <ul className="space-y-2">
                   {doctor.education.map((edu, index) => (
                     <li key={index} className="flex items-start text-gray-700">
-                      <span className="text-blue-600 mr-2 mt-1">🎓</span>
+                      <span className="text-teal-600 mr-2 mt-1">🎓</span>
                       {edu}
                     </li>
                   ))}
@@ -188,7 +188,7 @@ const DoctorDetail = () => {
                   {doctor.areasOfExpertise.map((area, index) => (
                     <span 
                       key={index}
-                      className="px-3 py-1 bg-blue-50 text-blue-600 text-sm rounded-full"
+                      className="px-3 py-1 border border-teal-400 bg-white text-teal-700 text-sm rounded-md"
                     >
                       {area}
                     </span>
@@ -203,16 +203,16 @@ const DoctorDetail = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-lg border border-teal-400 shadow-none p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-4">Contact Information</h2>
               
-              <div className="bg-gray-100 h-40 rounded-lg mb-4 flex items-center justify-center">
+              <div className="bg-gray-100 h-40 rounded-lg mb-4 flex items-center justify-center border border-teal-200">
                 <span className="text-gray-500">🗺️ Map Location</span>
               </div>
 
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <span className="text-gray-400 mr-3 mt-1">📍</span>
+                  <span className="text-teal-400 mr-3 mt-1">📍</span>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Address</p>
                     <p className="text-gray-700">{doctor.address}</p>
@@ -220,7 +220,7 @@ const DoctorDetail = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <span className="text-gray-400 mr-3 mt-1">📞</span>
+                  <span className="text-teal-400 mr-3 mt-1">📞</span>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Phone</p>
                     <p className="text-gray-700">+91 98765 43210</p>
@@ -228,7 +228,7 @@ const DoctorDetail = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <span className="text-gray-400 mr-3 mt-1">📱</span>
+                  <span className="text-teal-400 mr-3 mt-1">📱</span>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">WhatsApp</p>
                     <p className="text-gray-700">+91 98765 43210</p>
@@ -236,22 +236,22 @@ const DoctorDetail = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <span className="text-gray-400 mr-3 mt-1">🌐</span>
+                  <span className="text-teal-400 mr-3 mt-1">🌐</span>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Website</p>
-                    <p className="text-blue-600">www.citygeneralhospital.com</p>
+                    <p className="text-teal-600">www.citygeneralhospital.com</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Additional Information */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-lg border border-teal-400 shadow-none p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-4">Additional Information</h2>
               
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <span className="text-blue-600 mr-3 mt-1">💰</span>
+                  <span className="text-teal-600 mr-3 mt-1">💰</span>
                   <div>
                     <p className="font-medium text-gray-900">Consultation Fee</p>
                     <p className="text-gray-700">{doctor.consultationFee}</p>
@@ -259,7 +259,7 @@ const DoctorDetail = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <span className="text-blue-600 mr-3 mt-1">🏥</span>
+                  <span className="text-teal-600 mr-3 mt-1">🏥</span>
                   <div>
                     <p className="font-medium text-gray-900">Insurance Accepted</p>
                     <p className="text-gray-700">All major health insurance providers including CGHS, Mediclaim, Star Health</p>
@@ -267,7 +267,7 @@ const DoctorDetail = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <span className="text-blue-600 mr-3 mt-1">🔄</span>
+                  <span className="text-teal-600 mr-3 mt-1">🔄</span>
                   <div>
                     <p className="font-medium text-gray-900">Cancellation Policy</p>
                     <p className="text-gray-700">{doctor.cancellationPolicy}</p>
@@ -275,7 +275,7 @@ const DoctorDetail = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <span className="text-blue-600 mr-3 mt-1">📋</span>
+                  <span className="text-teal-600 mr-3 mt-1">📋</span>
                   <div>
                     <p className="font-medium text-gray-900">Preparation Instructions</p>
                     <p className="text-gray-700">{doctor.preparationInstructions}</p>
@@ -285,10 +285,10 @@ const DoctorDetail = () => {
             </div>
 
             {/* Patient Reviews */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-lg border border-teal-400 shadow-none p-6">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-bold text-gray-900">Patient Reviews</h2>
-                <button className="text-blue-600 hover:text-blue-800">+ Write a Review</button>
+                <button className="text-teal-600 hover:text-teal-800 border border-teal-400 px-3 py-1 rounded transition">+ Write a Review</button>
               </div>
 
               <div className="flex items-center mb-6">
@@ -330,13 +330,13 @@ const DoctorDetail = () => {
             </div>
 
             {/* What Patients Appreciate Most */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-lg border border-teal-400 shadow-none p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-4">What Patients Appreciate Most</h2>
               <div className="flex flex-wrap gap-2">
                 {patientAppreciations.map((appreciation, index) => (
                   <span 
                     key={index}
-                    className="px-3 py-1 bg-green-50 text-green-700 text-sm rounded-full"
+                    className="px-3 py-1 border border-teal-400 bg-white text-teal-700 text-sm rounded-md"
                   >
                     {appreciation}
                   </span>
@@ -345,16 +345,16 @@ const DoctorDetail = () => {
             </div>
 
             {/* Other Cardiologists */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-lg border border-teal-400 shadow-none p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-4">Other Cardiologists at City General Hospital</h2>
               <div className="grid md:grid-cols-3 gap-4">
                 {otherDoctors.map((doc, index) => (
-                  <div key={index} className="text-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow cursor-pointer">
-                    <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-2xl">👨‍⚕️</span>
+                  <div key={index} className="text-center p-4 border border-teal-400 rounded-lg hover:shadow-md transition-shadow cursor-pointer bg-white">
+                    <div className="w-16 h-16 bg-teal-50 rounded-full flex items-center justify-center mx-auto mb-3 border border-teal-400">
+                      <span className="text-2xl text-teal-600">👨‍⚕️</span>
                     </div>
                     <h3 className="font-semibold text-gray-900 mb-1">{doc.name}</h3>
-                    <p className="text-sm text-blue-600 mb-1">{doc.specialty}</p>
+                    <p className="text-sm text-teal-600 mb-1">{doc.specialty}</p>
                     <p className="text-xs text-gray-600">{doc.hospital}</p>
                   </div>
                 ))}
@@ -364,7 +364,7 @@ const DoctorDetail = () => {
 
           {/* Right Column - Booking Widget */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg shadow-sm p-6 sticky top-8">
+            <div className="bg-white rounded-lg border border-teal-400 shadow-none p-6 sticky top-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">Book an Appointment</h2>
               
               {/* Day Selection */}
@@ -373,10 +373,10 @@ const DoctorDetail = () => {
                   <button
                     key={day}
                     onClick={() => setSelectedDay(day)}
-                    className={`flex-1 py-2 px-3 text-sm font-medium rounded-lg mr-2 last:mr-0 ${
+                    className={`flex-1 py-2 px-3 text-sm font-medium rounded-lg mr-2 last:mr-0 border border-teal-400 ${
                       selectedDay === day 
-                        ? 'bg-blue-600 text-white' 
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        ? 'bg-teal-600 text-white' 
+                        : 'bg-white text-teal-700 hover:bg-teal-50'
                     }`}
                   >
                     {day}
@@ -386,18 +386,18 @@ const DoctorDetail = () => {
 
               {/* Calendar View */}
               <div className="grid grid-cols-7 gap-1 mb-6 text-center text-sm">
-                <div className="text-gray-500 py-2">M</div>
-                <div className="text-gray-500 py-2">T</div>
-                <div className="text-gray-500 py-2">W</div>
-                <div className="text-gray-500 py-2">T</div>
-                <div className="text-gray-500 py-2">F</div>
-                <div className="text-gray-500 py-2">S</div>
-                <div className="text-gray-500 py-2">S</div>
+                <div className="text-teal-500 py-2">M</div>
+                <div className="text-teal-500 py-2">T</div>
+                <div className="text-teal-500 py-2">W</div>
+                <div className="text-teal-500 py-2">T</div>
+                <div className="text-teal-500 py-2">F</div>
+                <div className="text-teal-500 py-2">S</div>
+                <div className="text-teal-500 py-2">S</div>
                 
                 <div className="text-gray-400 py-2">12</div>
                 <div className="text-gray-400 py-2">13</div>
                 <div className="text-gray-400 py-2">14</div>
-                <div className="bg-blue-600 text-white py-2 rounded">15</div>
+                <div className="bg-teal-600 text-white py-2 rounded">{15}</div>
                 <div className="text-gray-900 py-2">16</div>
                 <div className="text-gray-900 py-2">17</div>
                 <div className="text-gray-900 py-2">18</div>
@@ -415,12 +415,12 @@ const DoctorDetail = () => {
                           <button
                             key={index}
                             onClick={() => status === 'available' && setSelectedTimeSlot(slot)}
-                            className={`p-2 text-xs rounded border text-center ${
+                            className={`p-2 text-xs rounded border text-center border-teal-400 ${
                               status === 'booked' 
-                                ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
+                                ? 'bg-gray-100 text-gray-400 cursor-not-allowed border-dashed' 
                                 : selectedTimeSlot === slot
-                                ? 'bg-blue-600 text-white border-blue-600'
-                                : 'border-gray-300 text-gray-700 hover:border-blue-300'
+                                ? 'bg-teal-600 text-white border-teal-600'
+                                : 'bg-white text-teal-700 hover:bg-teal-50'
                             }`}
                             disabled={status === 'booked'}
                           >
@@ -435,26 +435,26 @@ const DoctorDetail = () => {
               </div>
 
               {/* Available at Hospital */}
-              <div className="flex items-center mb-4 text-green-600">
-                <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+              <div className="flex items-center mb-4 text-teal-600">
+                <span className="w-2 h-2 bg-teal-500 rounded-full mr-2"></span>
                 <span className="text-sm">Available at Hospital Today</span>
               </div>
 
               {/* Action Buttons */}
               <div className="space-y-3">
-                <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-medium">
+                <button className="w-full bg-teal-600 text-white py-3 rounded-lg hover:bg-teal-700 font-medium">
                   📅 Book Appointment
                 </button>
                 
-                <button className="w-full border border-blue-600 text-blue-600 py-3 rounded-lg hover:bg-blue-50 font-medium">
+                <button className="w-full border border-teal-600 text-teal-600 py-3 rounded-lg hover:bg-teal-50 font-medium">
                   💻 Video Consultation
                 </button>
                 
-                <button className="w-full border border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-50">
+                <button className="w-full border border-teal-400 text-teal-700 py-3 rounded-lg hover:bg-teal-50">
                   ❤️ Add to Favorites
                 </button>
                 
-                <button className="w-full border border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-50">
+                <button className="w-full border border-teal-400 text-teal-700 py-3 rounded-lg hover:bg-teal-50">
                   📄 Share Doctor Profile
                 </button>
               </div>

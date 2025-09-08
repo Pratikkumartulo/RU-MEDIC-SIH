@@ -39,34 +39,48 @@ export default function UserProfile() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 text-gray-800 font-sans">
-      <header className="bg-gradient-to-br from-blue-700 to-green-500 p-10 text-center text-white shadow-lg">
-        <h1 className="text-3xl text-white md:text-4xl font-bold tracking-wide mb-4">RU-MEDIC User Profile</h1>
+    <div className="min-h-screen bg-[#fafcfb] text-[#222] font-sans">
+      <header className="bg-white border-b border-[#e0ece7] p-6 flex items-center justify-between shadow-none">
+        <div className="flex items-center gap-2">
+          <svg width="32" height="32" fill="none" viewBox="0 0 24 24">
+            <path fill="#16a085" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span className="text-2xl font-bold text-[#222] tracking-tight">Medcare.</span>
+        </div>
+        <nav className="hidden md:flex gap-8 text-[#222] font-medium text-lg">
+          <a href="#" className="hover:text-[#16a085]">Home</a>
+          <a href="#" className="hover:text-[#16a085]">Services</a>
+          <a href="#" className="hover:text-[#16a085]">About</a>
+          <a href="#" className="hover:text-[#16a085]">Doctors</a>
+          <a href="#" className="hover:text-[#16a085]">Book</a>
+          <a href="#" className="hover:text-[#16a085]">Review</a>
+          <a href="#" className="hover:text-[#16a085]">Blogs</a>
+        </nav>
       </header>
 
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-14">
-        <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col sm:flex-row items-center gap-8 border border-blue-100">
-          <div className="w-28 h-28 rounded-full bg-gradient-to-br from-blue-600 to-green-600 flex items-center justify-center text-white text-5xl font-extrabold shadow-lg border-4 border-white">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+        <div className="bg-white rounded-xl shadow border border-[#16a085] p-8 flex flex-col sm:flex-row items-center gap-8">
+          <div className="w-28 h-28 rounded-full bg-[#e0ece7] flex items-center justify-center text-[#16a085] text-5xl font-extrabold shadow border-4 border-white">
             {getInitials(userDetail?.name)}
           </div>
           <div className="flex flex-col text-center sm:text-left gap-1">
-            <h2 className="text-blue-700 text-2xl font-bold">{userDetail?.name || "User Name"}</h2>
-            <p className="text-gray-600 text-sm mt-1">
+            <h2 className="text-[#16a085] text-2xl font-bold">{userDetail?.name || "User Name"}</h2>
+            <p className="text-[#222] text-sm mt-1">
               <span className="font-semibold">Email:</span> {userDetail?.email || "N/A"}
             </p>
-            <p className="text-gray-600 text-sm">
+            <p className="text-[#222] text-sm">
               <span className="font-semibold">Phone:</span> {userDetail?.phone || "N/A"}
             </p>
-            <p className="text-gray-600 text-sm">
+            <p className="text-[#222] text-sm">
               <span className="font-semibold">Gender:</span> {userDetail?.gender || "N/A"}
             </p>
-            <p className="text-gray-600 text-sm">
+            <p className="text-[#222] text-sm">
               <span className="font-semibold">Age:</span> {userDetail?.age || "N/A"}
             </p>
-            <p className="text-gray-600 text-sm">
+            <p className="text-[#222] text-sm">
               <span className="font-semibold">Address:</span> {userDetail?.address || "N/A"}
             </p>
-            <p className="text-gray-600 text-sm">
+            <p className="text-[#222] text-sm">
               <span className="font-semibold">Patient ID:</span> {userDetail?.$id || "N/A"}
             </p>
           </div>
@@ -76,31 +90,31 @@ export default function UserProfile() {
         <div className="flex justify-center gap-4 mt-10">
           <button
             onClick={() => setActiveTab("history")}
-            className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 shadow-sm ${
+            className={`px-6 py-2 rounded-lg font-semibold border-2 transition-all duration-300 shadow-none ${
               activeTab === "history"
-                ? "bg-blue-600 text-white scale-105"
-                : "bg-blue-100 text-blue-700 hover:bg-blue-200"
+                ? "bg-[#16a085] text-white border-[#16a085]"
+                : "bg-white text-[#16a085] border-[#16a085] hover:bg-[#e0ece7]"
             }`}
             aria-selected={activeTab === "history"}
             role="tab"
             id="tab-history"
             aria-controls="panel-history"
           >
-            📜 History
+            History
           </button>
           <button
             onClick={() => setActiveTab("orders")}
-            className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 shadow-sm ${
+            className={`px-6 py-2 rounded-lg font-semibold border-2 transition-all duration-300 shadow-none ${
               activeTab === "orders"
-                ? "bg-green-600 text-white scale-105"
-                : "bg-green-100 text-green-700 hover:bg-green-200"
+                ? "bg-[#16a085] text-white border-[#16a085]"
+                : "bg-white text-[#16a085] border-[#16a085] hover:bg-[#e0ece7]"
             }`}
             aria-selected={activeTab === "orders"}
             role="tab"
             id="tab-orders"
             aria-controls="panel-orders"
           >
-            🛒 Orders
+            Orders
           </button>
         </div>
 
@@ -112,31 +126,30 @@ export default function UserProfile() {
           hidden={activeTab !== "history"}
           className="mt-8"
         >
-          <div className="relative border-l-4 border-blue-200 pl-6 space-y-6">
+          <div className="grid gap-6">
             {appointments.length === 0 ? (
-              <div className="text-gray-400 text-center">No appointment history found.</div>
+              <div className="text-[#aaa] text-center">No appointment history found.</div>
             ) : (
               appointments.map((appt) => (
                 <article
                   key={appt.$id}
-                  className="relative bg-white p-5 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow"
+                  className="bg-white p-6 rounded-xl shadow border border-[#16a085] hover:shadow-lg transition-shadow"
                 >
-                  <h4 className="text-blue-700 font-semibold text-lg">
+                  <h4 className="text-[#16a085] font-semibold text-lg">
                     {appt.symptoms || "Appointment"}
                   </h4>
-                  <p className="text-gray-500 text-sm mt-1">
+                  <p className="text-[#222] text-sm mt-1">
                     <span className="font-semibold">Date:</span> {formatDate(appt.date)}
                   </p>
-                  <p className="text-gray-500 text-sm">
+                  <p className="text-[#222] text-sm">
                     <span className="font-semibold">Time:</span> {appt.time}
                   </p>
-                  <p className="text-gray-500 text-sm">
+                  <p className="text-[#222] text-sm">
                     <span className="font-semibold">Status:</span> {appt.status}
                   </p>
-                  <p className="text-gray-500 text-sm">
+                  <p className="text-[#222] text-sm">
                     <span className="font-semibold">Doctor Name:</span> {doctor.name}
                   </p>
-                  <span className="absolute -left-7 top-5 w-5 h-5 rounded-full bg-blue-600 ring-4 ring-blue-100"></span>
                 </article>
               ))
             )}
@@ -150,22 +163,22 @@ export default function UserProfile() {
           hidden={activeTab !== "orders"}
           className="mt-8 space-y-4"
         >
-          <div className="flex justify-between items-center p-5 border border-gray-100 rounded-xl bg-white shadow-md hover:shadow-lg transition-shadow">
+          <div className="flex justify-between items-center p-6 border border-[#16a085] rounded-xl bg-white shadow hover:shadow-lg transition-shadow">
             <div>
-              <strong className="block text-gray-900">Paracetamol</strong>
-              <small className="text-gray-500">Ordered: 02 Feb 2025</small>
+              <strong className="block text-[#222]">Paracetamol</strong>
+              <small className="text-[#888]">Ordered: 02 Feb 2025</small>
             </div>
-            <span className="inline-block px-3 py-1 rounded-full text-green-700 bg-green-100 font-semibold text-xs">
-              ✅ Delivered
+            <span className="inline-block px-3 py-1 rounded-full text-[#16a085] bg-[#e0ece7] font-semibold text-xs border border-[#16a085]">
+              Delivered
             </span>
           </div>
-          <div className="flex justify-between items-center p-5 border border-gray-100 rounded-xl bg-white shadow-md hover:shadow-lg transition-shadow">
+          <div className="flex justify-between items-center p-6 border border-[#16a085] rounded-xl bg-white shadow hover:shadow-lg transition-shadow">
             <div>
-              <strong className="block text-gray-900">Vitamin B Complex</strong>
-              <small className="text-gray-500">Ordered: 20 Jan 2025</small>
+              <strong className="block text-[#222]">Vitamin B Complex</strong>
+              <small className="text-[#888]">Ordered: 20 Jan 2025</small>
             </div>
-            <span className="inline-block px-3 py-1 rounded-full text-yellow-700 bg-yellow-100 font-semibold text-xs">
-              ⏳ Pending
+            <span className="inline-block px-3 py-1 rounded-full text-[#f39c12] bg-[#fdf6e3] font-semibold text-xs border border-[#f39c12]">
+              Pending
             </span>
           </div>
         </section>
